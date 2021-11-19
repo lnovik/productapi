@@ -8,6 +8,9 @@ import com.novik.productsapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductService {
 
@@ -20,13 +23,20 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+
     public MessageResponseDTO createProduct(ProductDTO productDTO) {
         Product productToSave = productMapper.toModel(productDTO);
         Product savedProduct = productRepository.save(productToSave);
         return MessageResponseDTO.builder()
-                .message("Product created with ID:" + savedProduct.getId())
+                .message("Product created with ID: " + savedProduct.getId())
                 .build();
     }
 
-
+    public List<ProductDTO> listAll() {
+        List<Product> allProduct = productRepository.findAll();
+        return allProduct.stream()
+                .map(productMapper::toDTO)
+                .collect(Collectors.toList());
+    }
 }
+

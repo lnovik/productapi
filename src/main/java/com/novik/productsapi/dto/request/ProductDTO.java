@@ -1,24 +1,19 @@
 package com.novik.productsapi.dto.request;
 
-import com.novik.productsapi.entity.Store;
 import com.novik.productsapi.enums.Inventory;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
@@ -54,7 +49,7 @@ public class ProductDTO {
 
     @Valid
     @NotEmpty
-    private List<StoreDTO> storeList;
+    private List<StoreDTO> storesList;
 
 
 }
