@@ -1,0 +1,60 @@
+package com.novik.productsapi.dto.request;
+
+import com.novik.productsapi.entity.Store;
+import com.novik.productsapi.enums.Inventory;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.math.BigDecimal;
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductDTO {
+
+    private Long id;
+
+    @NotEmpty
+    @Size(min = 2, max = 25)
+    private String name;
+
+    @NotEmpty
+    @Size(min =2, max = 10)
+    private String brand;
+
+    @NotEmpty
+    @Size(max = 100)
+    private String batch;
+
+    @NotNull
+    private int amount;
+
+    @NotNull
+    private BigDecimal weight;
+
+    @NotNull
+    private BigDecimal unitValue;
+
+    @NotEmpty
+    private String maturityDate;
+
+    @Enumerated(EnumType.STRING)
+    private Inventory statusInventory;
+
+    @Valid
+    @NotEmpty
+    private List<StoreDTO> storeList;
+
+
+}
