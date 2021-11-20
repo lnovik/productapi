@@ -3,6 +3,7 @@ package com.novik.productsapi.service;
 import com.novik.productsapi.dto.request.ProductDTO;
 import com.novik.productsapi.dto.response.MessageResponseDTO;
 import com.novik.productsapi.entity.Product;
+import com.novik.productsapi.exception.ProductNotFoundException;
 import com.novik.productsapi.mapper.ProductMapper;
 import com.novik.productsapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,15 @@ public class ProductService {
         return allProduct.stream()
                 .map(productMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+
+    public ProductDTO findById(Long id) throws ProductNotFoundException {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+
+        return productMapper.toDTO(product);
+
     }
 }
 
