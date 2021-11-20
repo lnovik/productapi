@@ -42,11 +42,19 @@ public class ProductService {
 
 
     public ProductDTO findById(Long id) throws ProductNotFoundException {
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
-
+        Product product = verifyIfExists(id);
         return productMapper.toDTO(product);
-
     }
+
+    public void delete(Long id) throws ProductNotFoundException {
+        verifyIfExists(id);
+        productRepository.deleteById(id);
+    }
+
+    private Product verifyIfExists(Long id) throws ProductNotFoundException {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+    }
+
 }
 

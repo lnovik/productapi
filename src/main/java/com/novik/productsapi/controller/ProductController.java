@@ -39,5 +39,10 @@ public class ProductController {
         return productService.findById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteProductById(@PathVariable Long id) throws ProductNotFoundException {
+        productService.delete(id);
+    }
+
 
 }
