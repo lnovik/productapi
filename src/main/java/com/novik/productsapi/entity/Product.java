@@ -11,7 +11,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,10 +35,10 @@ public class Product {
     private int amount;
 
     @Column(nullable = false)
-    private BigDecimal weight;
+    private double weight;
 
     @Column(nullable = false)
-    private BigDecimal unitValue;
+    private double unitValue;
 
     @Column(nullable = false)
     private LocalDate maturityDate;

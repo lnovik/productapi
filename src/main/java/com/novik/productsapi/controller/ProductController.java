@@ -20,7 +20,6 @@ public class ProductController {
     private final ProductService productService;
 
 
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createProduct(@RequestBody @Valid ProductDTO productDTO) {
@@ -46,10 +45,6 @@ public class ProductController {
     public MessageResponseDTO updateProductById(@PathVariable Long id, @RequestBody ProductDTO productDTO) throws ProductNotFoundException {
         return productService.updateById(id, productDTO);
     }
-
-
-
-
 
 
 }
