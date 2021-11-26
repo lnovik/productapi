@@ -25,7 +25,7 @@ public class ProductService {
     public MessageResponseDTO createProduct(ProductDTO productDTO) {
         Product productToSave = productMapper.toModel(productDTO);
         Product savedProduct = productRepository.save(productToSave);
-        return  createMessageResponse("Product update with ID: ", savedProduct.getId());
+        return  createMessageResponse(savedProduct.getId()," Product update with ID: " );
     }
 
     public List<ProductDTO> listAll() {
@@ -50,10 +50,10 @@ public class ProductService {
         verifyIfExists(id);
         Product productToSave = productMapper.toModel(productDTO);
         Product updateProduct = productRepository.save(productToSave);
-        return createMessageResponse(" Product update with ID: ", updateProduct.getId());
+        return createMessageResponse(updateProduct.getId(), " Product update with ID: ");
     }
 
-    private MessageResponseDTO createMessageResponse(String message, Long id) {
+    private MessageResponseDTO createMessageResponse(Long id, String message) {
         return MessageResponseDTO
                 .builder()
                 .message(message + id)

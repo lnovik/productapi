@@ -1,10 +1,7 @@
 package com.novik.productsapi.dto.request;
 
 import com.novik.productsapi.enums.Inventory;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,7 +12,8 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

@@ -5,7 +5,8 @@ import lombok.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

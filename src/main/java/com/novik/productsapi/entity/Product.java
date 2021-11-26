@@ -51,6 +51,4 @@ public class Product {
     private List<Store> storesList;
 
 
-
-
 }
