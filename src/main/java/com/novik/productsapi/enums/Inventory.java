@@ -11,7 +11,7 @@ public enum Inventory {
     AVAILABLE("AVAILABLE"),
     CLOSEDSTOCK("CLOSEDSTOCK"),
     EXPIRED("EXPIRED");
-    
+
     private final String description;
 
 }

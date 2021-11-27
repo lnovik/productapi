@@ -19,14 +19,14 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductDTO {
 
-   private Long id;
+    private Long id;
 
     @NotEmpty
     @Size(min = 2, max = 25)
     private String name;
 
     @NotEmpty
-    @Size(min =2, max = 10)
+    @Size(min = 2, max = 10)
     private String brand;
 
     @NotEmpty

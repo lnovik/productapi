@@ -27,5 +27,4 @@ public class StoreDTO {
     private String zipCode;
 
 
-
 }

@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public MessageResponseDTO updateProductById(@PathVariable Long id, @RequestBody @Valid  ProductDTO productDTO) throws ProductNotFoundException {
+    public MessageResponseDTO updateProductById(@PathVariable Long id, @RequestBody @Valid ProductDTO productDTO) throws ProductNotFoundException {
         return productService.updateById(id, productDTO);
     }
 
